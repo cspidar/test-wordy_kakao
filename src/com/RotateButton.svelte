@@ -1,5 +1,5 @@
 <script>
-  export let func;
+  // export let func;
 </script>
 
 <button

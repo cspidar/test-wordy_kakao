@@ -22,12 +22,85 @@
   import RotateButton from "./com/RotateButton.svelte";
 
   // LINK
-
-  import "./kakao.js";
-
+  import "./lib/kakao.js";
   Kakao.init("6e437b23b2779fece18e6c86a9b86bb7");
   console.log(Kakao.isInitialized());
 
+  // import "./kakao.js";
+  // import * as Kakao from "./kakao.js";
+  // let kakao = Kakao;
+  // Kakao.init("6e437b23b2779fece18e6c86a9b86bb7");
+  // console.log(Kakao.isInitialized());
+
+  function shareKakao() {
+    Kakao.Link.createDefaultButton({
+      // const shareKakao = Kakao.Link.createDefaultButton({
+      container: "#kakao-link-btn",
+      objectType: "feed",
+      content: {
+        title: "오늘의 디저트",
+        description: "아메리카노, 빵, 케익",
+        imageUrl:
+          "https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg",
+        link: {
+          mobileWebUrl: "https://developers.kakao.com",
+          androidExecutionParams: "test",
+        },
+      },
+      itemContent: {
+        profileText: "Kakao",
+        profileImageUrl:
+          "https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
+        titleImageUrl:
+          "https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
+        titleImageText: "Cheese cake",
+        titleImageCategory: "Cake",
+        items: [
+          {
+            item: "Cake1",
+            itemOp: "1000원",
+          },
+          {
+            item: "Cake2",
+            itemOp: "2000원",
+          },
+          {
+            item: "Cake3",
+            itemOp: "3000원",
+          },
+          {
+            item: "Cake4",
+            itemOp: "4000원",
+          },
+          {
+            item: "Cake5",
+            itemOp: "5000원",
+          },
+        ],
+        sum: "Total",
+        sumOp: "15000원",
+      },
+      social: {
+        likeCount: 10,
+        commentCount: 20,
+        sharedCount: 30,
+      },
+      buttons: [
+        {
+          title: "웹으로 이동",
+          link: {
+            mobileWebUrl: "https://developers.kakao.com",
+          },
+        },
+        {
+          title: "앱으로 이동",
+          link: {
+            mobileWebUrl: "https://developers.kakao.com",
+          },
+        },
+      ],
+    });
+  }
   // LINK
 
   export let tabs = [
@@ -189,6 +262,8 @@
   }
 
   onMount(() => {
+    // kakao = Kakao;
+
     console.log("mount!1");
   });
 
@@ -219,6 +294,13 @@
     <DrawerMenu>Compo menu 4</DrawerMenu>
 
     <!-- LINK -->
+    <!-- 공유하기 버튼을 추가하고 메시지 보내기 -->
+    <button on:click={shareKakao}>
+      <img
+        src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+        alt="카카오링크 보내기 버튼"
+      />
+    </button>
 
     <!-- LINK -->
   </div>

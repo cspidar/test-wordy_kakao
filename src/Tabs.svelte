@@ -22,7 +22,9 @@
   import RotateButton from "./com/RotateButton.svelte";
 
   // LINK
+
   import "./lib/kakao.js";
+
   Kakao.init("6e437b23b2779fece18e6c86a9b86bb7");
   console.log(Kakao.isInitialized());
 
@@ -32,6 +34,7 @@
   // Kakao.init("6e437b23b2779fece18e6c86a9b86bb7");
   // console.log(Kakao.isInitialized());
 
+  //함수로 감싸야만 하는 이유, 아니면 안싸도 되는 방법 등 조사 필요
   function shareKakao() {
     Kakao.Link.createDefaultButton({
       // const shareKakao = Kakao.Link.createDefaultButton({
@@ -270,6 +273,8 @@
   // Drawer Open
   let open = false;
 </script>
+
+<!-- LINK -->
 
 <!-- <DrawerMenu /> -->
 

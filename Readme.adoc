@@ -1,0 +1,6 @@
+= Wordy
+
+image::./public/icon_cut.png[]
+
+image::./public/mobile_screen_shot1.png[]
+image::./public/mobile_screen_shot2.png[]

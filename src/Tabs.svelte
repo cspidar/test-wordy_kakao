@@ -25,8 +25,8 @@
 
   import "./lib/kakao.js";
 
-  Kakao.init("6e437b23b2779fece18e6c86a9b86bb7");
-  console.log(Kakao.isInitialized());
+  // Kakao.init("6e437b23b2779fece18e6c86a9b86bb7");
+  // console.log(Kakao.isInitialized());
 
   // import "./kakao.js";
   // import * as Kakao from "./kakao.js";
@@ -36,9 +36,7 @@
 
   //함수로 감싸야만 하는 이유, 아니면 안싸도 되는 방법 등 조사 필요
   function shareKakao() {
-    Kakao.Link.createDefaultButton({
-      // const shareKakao = Kakao.Link.createDefaultButton({
-      container: "#kakao-link-btn",
+    Kakao.Link.sendDefault({
       objectType: "feed",
       content: {
         title: "오늘의 디저트",
@@ -80,7 +78,7 @@
             itemOp: "5000원",
           },
         ],
-        sum: "Total",
+        sum: "총 결제금액",
         sumOp: "15000원",
       },
       social: {
@@ -266,7 +264,9 @@
 
   onMount(() => {
     // kakao = Kakao;
-
+    // onMount 안에서 이니시해야 좋다는 내용 추가
+    Kakao.init("6e437b23b2779fece18e6c86a9b86bb7");
+    console.log(Kakao.isInitialized());
     console.log("mount!1");
   });
 

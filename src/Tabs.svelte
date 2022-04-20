@@ -23,7 +23,8 @@
 
   // LINK
 
-  import "./lib/kakao.js";
+  import "./kakao.js";
+  // import "https://developers.kakao.com/sdk/js/kakao.js";
 
   // Kakao.init("6e437b23b2779fece18e6c86a9b86bb7");
   // console.log(Kakao.isInitialized());
@@ -264,7 +265,6 @@
 
   onMount(() => {
     // kakao = Kakao;
-    // onMount 안에서 이니시해야 좋다는 내용 추가
     Kakao.init("6e437b23b2779fece18e6c86a9b86bb7");
     console.log(Kakao.isInitialized());
     console.log("mount!1");
@@ -306,6 +306,12 @@
         alt="카카오링크 보내기 버튼"
       />
     </button>
+    <!-- <button on:click={shareKakao}>
+      <img
+        src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+        alt="카카오링크 보내기 버튼"
+      />
+    </button> -->
 
     <!-- LINK -->
   </div>
